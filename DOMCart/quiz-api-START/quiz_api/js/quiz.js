@@ -3,7 +3,13 @@ let correctAnswer;
 
 document.addEventListener('DOMContentLoaded', function() {
     loadQuestion();
+
+    eventListeners();
 });
+
+eventListeners = () => {
+    document.querySelector('#check-answer').addEventListener('click', validateAnswer);
+}
 
 // loads a new question from an API
 loadQuestion = () => {
@@ -66,4 +72,24 @@ selectAnswer = (e) => {
     }
     // adds the current answer
     e.target.classList.add('active');
+}
+
+// Checks if the answer is correct and 1 answer is selected
+validateAnswer = () => {
+    if(document.querySelector('.questions .active') ) {
+        // everything is fine, check if the answer is correct or not
+    } else {
+        // error, the user didn't select anything
+        const errorDiv = document.createElement('div');
+        errorDiv.classList.add('alert', 'alert-danger', 'col-md-6');
+        errorDiv.textContent = 'Please select 1 answer';
+        // select the questions div to insert the alert
+        const questionsDiv = document.querySelector('.questions');
+        questionsDiv.appendChild(errorDiv);
+
+        // remove the error
+        setTimeout(() => {
+            document.querySelector('.alert-danger').remove();
+        }, 3000);
+    }
 }
