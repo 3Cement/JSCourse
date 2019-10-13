@@ -1,4 +1,6 @@
-let correctAnswer;
+let correctAnswer,
+    correctNumber = 0,
+    incorrectNumber = 0;
 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -28,7 +30,6 @@ displayQuestion = questions => {
     questionHTML.classList.add('col-12');
 
     questions.forEach(question => {
-        console.log(question);
 
         // read the correct answer
         correctAnswer = question.correct_answer;
@@ -41,6 +42,10 @@ displayQuestion = questions => {
         questionHTML.innerHTML = `
         <div class="row justify-content-between heading">
             <p class="category">Category: ${question.category}</p>
+            <div class="totals">
+                <span class="badge badge-success">${correctNumber}</span>
+                <span class="badge badge-danger">${incorrectNumber}</span>
+            </div>
             <h2 class="text-center">${question.question}</h2>
         `;
 
@@ -78,6 +83,7 @@ selectAnswer = (e) => {
 validateAnswer = () => {
     if(document.querySelector('.questions .active') ) {
         // everything is fine, check if the answer is correct or not
+        checkAnswer();
     } else {
         // error, the user didn't select anything
         const errorDiv = document.createElement('div');
@@ -92,4 +98,23 @@ validateAnswer = () => {
             document.querySelector('.alert-danger').remove();
         }, 3000);
     }
+}
+
+// check if the answer is correct or not
+checkAnswer = () => {
+    const userAnswer = document.querySelector('.questions .active');
+
+    if(userAnswer.textContent === correctAnswer) {
+        correctNumber++;
+    } else {
+        incorrectNumber++;
+    }
+    // clear previous HTML
+    const app = document.querySelector('#app');
+    while(app.firstChild) {
+        app.removeChild(app.firstChild);
+    }
+
+    // load a naw question
+    loadQuestion();
 }
