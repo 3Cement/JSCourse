@@ -229,3 +229,19 @@
 // })
 
 // console.log(juan);
+
+
+// Callbacks
+
+const cities = ['London', 'New York', 'Madrid', 'Paris', 'Berlin'];
+
+// // Initial Callbacks
+// cities.forEach(function(city) {
+//     console.log(city);
+// });
+
+// callback with function declaration
+function callback(city) {
+    console.log(city);
+}
+cities.forEach(callback);

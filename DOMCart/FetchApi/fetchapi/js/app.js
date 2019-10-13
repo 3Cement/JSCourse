@@ -10,6 +10,7 @@ document.getElementById('button3').addEventListener('click', loadREST);
 function loadTxt() {
     fetch('data.txt')
     .then(function(response){
+        console.log(response);
         return response.text();
     })
     .then(function(data){
