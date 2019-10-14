@@ -16,7 +16,7 @@ eventListeners = () => {
 
 // loads a new question from an API
 loadQuestion = () => {
-    const url = 'https://opentdb.com/api.php?amount=1';
+    const url = 'https://opentdb.com/api.php?amount=1&category=18';
     fetch(url)
     .then(data => data.json())
     .then(result => displayQuestion(result.results));
