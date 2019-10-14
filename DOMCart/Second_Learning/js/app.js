@@ -265,16 +265,101 @@
 
 // The new way
 
-let name, membership;
+// let name, membership;
 
+// const client = {
+//     name: 'Alexa',
+//     membership: 'Premium'
+// }
+
+// name = 'Mary';
+// membership = 'Platinum';
+
+// ({name, membership} = client);
+// console.log(name);
+// console.log(membership);
+
+// Extract object that's inside another object
+
+// const client = {
+//     membership: 'Premium',
+//     name: 'Paul',
+//     data: {
+//         clientLocation: {
+//             city: 'Mexico',
+//             country: 'Mexico'
+//         },
+//         account: {
+//             memberSince: '10-12-2012',
+//             balance: 4000
+//         }
+//     }
+// }
+
+// // console.log(client);
+
+// let { data: {clientLocation} } = client;
+
+// console.log(clientLocation);
+// console.log(clientLocation.city);
+// console.log(clientLocation.country);
+
+// let {data: {account}} = client;
+
+// console.log(account);
+// console.log(account.memberSince);
+// console.log(account.balance);
+
+// Default values when destructuring
+
+// const client = {
+//     name: 'Juan',
+//     membership: 'Premium',
+// }
+
+// console.log(client);
+
+// // Destructuring
+// let {name, membership, balance = 0} = client;
+
+// console.log(balance);
+
+// Destructuring with arrays
+
+// let cities = ['London', 'New York', 'Madrid', 'Paris'];
+
+// let [
+//     ,
+//     ,
+//     anotherCity,
+//     paris
+// ] = cities;
+
+// // console.log(firstCity);
+// console.log(anotherCity);
+// console.log(paris);
+
+// More in depth example
 const client = {
-    name: 'Alexa',
-    membership: 'Premium'
+    membership: 'Premium',
+    balance: 30000,
+    data: {
+        name: 'Paul',
+        lastName: 'Banks',
+        living: {
+            city: 'London',
+            country: 'UK'
+        }
+    },
+    lastMovements: ['12-03-2018', '10-03-2018', '08-03-2018']
 }
 
-name = 'Mary';
-membership = 'Platinum';
+// console.log(client);
 
-({name, membership} = client);
-console.log(name);
-console.log(membership);
+let {
+    data: {living},
+    lastMovements: [, , third]
+} = client;
+
+console.log(living);
+console.log(third);
