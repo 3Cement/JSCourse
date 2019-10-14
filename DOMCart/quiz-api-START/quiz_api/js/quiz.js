@@ -1,7 +1,6 @@
 let correctAnswer,
-    correctNumber = 0,
-    incorrectNumber = 0;
-
+    correctNumber = (localStorage.getItem('quiz_game_correct') ? localStorage.getItem('quiz_game_correct') : 0);
+    incorrectNumber = (localStorage.getItem('quiz_game_incorrect') ? localStorage.getItem('quiz_game_incorrect') : 0);
 
 document.addEventListener('DOMContentLoaded', function() {
     loadQuestion();
@@ -11,6 +10,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 eventListeners = () => {
     document.querySelector('#check-answer').addEventListener('click', validateAnswer);
+
+    document.querySelector('#clear-storage').addEventListener('click', clearResults);
 }
 
 // loads a new question from an API
@@ -109,6 +110,9 @@ checkAnswer = () => {
     } else {
         incorrectNumber++;
     }
+    // save into loaclstorage
+    saveIntoStorage();
+
     // clear previous HTML
     const app = document.querySelector('#app');
     while(app.firstChild) {
@@ -117,4 +121,21 @@ checkAnswer = () => {
 
     // load a naw question
     loadQuestion();
+}
+
+// saves correct or incorrect totals in storage
+saveIntoStorage = () => {
+    localStorage.setItem('quiz_game_correct', correctNumber);
+    localStorage.setItem('quiz_game_incorrect', incorrectNumber);
+}
+
+// Clears the results from storage
+
+clearResults = () => {
+    localStorage.setItem('quiz_game_correct', 0);
+    localStorage.setItem('quiz_game_incorrect', 0);
+
+    setTimeout(() => {
+        window.location.reload();
+    }, 500);
 }
