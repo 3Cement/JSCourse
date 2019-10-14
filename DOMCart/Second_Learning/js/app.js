@@ -231,17 +231,50 @@
 // console.log(juan);
 
 
-// Callbacks
+// // Callbacks
 
-const cities = ['London', 'New York', 'Madrid', 'Paris', 'Berlin'];
+// const cities = ['London', 'New York', 'Madrid', 'Paris', 'Berlin'];
 
-// // Initial Callbacks
-// cities.forEach(function(city) {
+// // // Initial Callbacks
+// // cities.forEach(function(city) {
+// //     console.log(city);
+// // });
+
+// // callback with function declaration
+// function callback(city) {
 //     console.log(city);
-// });
+// }
+// cities.forEach(callback);
 
-// callback with function declaration
-function callback(city) {
-    console.log(city);
+
+
+
+// Destructuring 
+
+// The old way
+// const client = {
+//     name: 'Alexa',
+//     membership: 'Premium'
+// }
+
+// let name = client.name,
+//     membership = client.membership;
+
+// console.log(name);
+// console.log(membership);
+
+// The new way
+
+let name, membership;
+
+const client = {
+    name: 'Alexa',
+    membership: 'Premium'
 }
-cities.forEach(callback);
+
+name = 'Mary';
+membership = 'Platinum';
+
+({name, membership} = client);
+console.log(name);
+console.log(membership);
