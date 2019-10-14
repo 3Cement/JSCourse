@@ -339,27 +339,73 @@
 // console.log(anotherCity);
 // console.log(paris);
 
-// More in depth example
-const client = {
-    membership: 'Premium',
-    balance: 30000,
-    data: {
-        name: 'Paul',
-        lastName: 'Banks',
-        living: {
-            city: 'London',
-            country: 'UK'
-        }
-    },
-    lastMovements: ['12-03-2018', '10-03-2018', '08-03-2018']
+// // More in depth example
+// const client = {
+//     membership: 'Premium',
+//     balance: 30000,
+//     data: {
+//         name: 'Paul',
+//         lastName: 'Banks',
+//         living: {
+//             city: 'London',
+//             country: 'UK'
+//         }
+//     },
+//     lastMovements: ['12-03-2018', '10-03-2018', '08-03-2018']
+// }
+
+// // console.log(client);
+
+// let {
+//     data: {living},
+//     lastMovements: [, , third]
+// } = client;
+
+// console.log(living);
+// console.log(third);
+
+// Destructuring functions (old method)
+
+// function reservation(complete, options) {
+//     options = options || {};
+//     let payment = options.paymentMethod,
+//         amount = options.amount;
+//         days = options.days;
+
+//     console.log(payment);
+//     console.log(amount);
+//     console.log(days);
+// }
+
+// reservation( 
+//     true, 
+//     {
+//         paymentMethod: 'creditCard',
+//         amount: 3000,
+//         days: 3
+//     }
+// )
+
+// Destructuring functions (new method) with default parameters
+
+function reservation(complete, 
+        {
+            paymentMethod = 'cash',
+            amount = 0,
+            days = 0
+        } = {}
+    ) {
+
+    console.log(paymentMethod);
+    console.log(amount);
+    console.log(days);
 }
 
-// console.log(client);
-
-let {
-    data: {living},
-    lastMovements: [, , third]
-} = client;
-
-console.log(living);
-console.log(third);
+reservation( 
+    true, 
+    {
+        paymentMethod: 'creditCard',
+        amount: 3000,
+        days: 20
+    }
+)
