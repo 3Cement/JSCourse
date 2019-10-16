@@ -566,3 +566,46 @@
 // console.log(shoppingCartIterator.nextProduct());
 // console.log(shoppingCartIterator.nextProduct());
 // console.log(shoppingCartIterator.nextProduct());
+
+// Generators
+
+// function *createGenerator() {
+//     // Yield
+//     yield 1;
+//     yield ' Name of the person';
+//     yield 3+3;
+//     yield true;
+//     yield 'Hello from Generator';
+// }
+
+// const iterator = createGenerator();
+
+// console.log(iterator.next());
+// console.log(iterator.next().done);
+// console.log(iterator.next().value);
+// console.log(iterator.next().value);
+// console.log(iterator.next().value);
+// console.log(iterator.next().value);
+// console.log(iterator.next().done);
+// console.log(iterator.next().done);
+
+// Create the generator
+function *newGenerator(cart) {
+    for(let i = 0; i < cart.length; i++) {
+        yield cart[i];
+    }
+}
+
+// Shopping Cart
+
+const cart = ['Product 1', 'Product 2', 'Product 3', 'Product 4'];
+
+// Loop in the iterator
+
+let iterator = newGenerator(cart);
+
+console.log(iterator.next() );
+console.log(iterator.next() );
+console.log(iterator.next() );
+console.log(iterator.next() );
+console.log(iterator.next() );
