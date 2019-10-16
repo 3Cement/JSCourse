@@ -495,45 +495,74 @@
 
 // console.log(shoppingCartArray);
 
-let client = new Map();
-client.set('name', 'Karen');
-client.set('membership', 'Premium');
-client.set('balance', 3000);
+// let client = new Map();
+// client.set('name', 'Karen');
+// client.set('membership', 'Premium');
+// client.set('balance', 3000);
 
-// ForEach into a map
+// // ForEach into a map
 
-client.forEach((clientInfo, index) => {
-    console.log(`${index} ${clientInfo}`);
-})
+// client.forEach((clientInfo, index) => {
+//     console.log(`${index} ${clientInfo}`);
+// })
 
 
-// access the values
+// // access the values
 
-// console.log(client.get('name'));
+// // console.log(client.get('name'));
+// // console.log(client.get('membership'));
+// // console.log(client.get('balance'));
+
+// // Map Methods
+
+// // Map Size
+// console.log(client.size);
+
+// // Check if a value exists
+// console.log(client.has('membership'));
 // console.log(client.get('membership'));
-// console.log(client.get('balance'));
 
-// Map Methods
+// // Remove elements from the MAP
+// client.delete('name');
 
-// Map Size
-console.log(client.size);
+// // Clear the map
 
-// Check if a value exists
-console.log(client.has('membership'));
-console.log(client.get('membership'));
+// client.clear();
 
-// Remove elements from the MAP
-client.delete('name');
+// // Default values into the map
 
-// Clear the map
+// const patient = new Map([['name', 'Patient Name'], ['room', 'Not Defined']]);
+// patient.set('name', 'Paul')
+// patient.set('room', '404')
 
-client.clear();
+// console.log(patient);
+// console.log(client);
 
-// Default values into the map
+// Iterators
 
-const patient = new Map([['name', 'Patient Name'], ['room', 'Not Defined']]);
-patient.set('name', 'Paul')
-patient.set('room', '404')
+// function createIterator(cart){
+//     let i = 0;
+//     return {
+//         nextProduct: function() {
+//             let end = ( i >= cart.length );
+//             let value = !end ? cart[i++] : undefined;
 
-console.log(patient);
-console.log(client);
+//             return {
+//                 end: end,
+//                 value: value
+//             }
+//         }
+//     }
+// }
+
+
+
+// const shoppingCart = ['Product 1', 'Product 2', 'Product 3', 'Product 4'];
+
+// const shoppingCartIterator = createIterator(shoppingCart);
+
+// console.log(shoppingCartIterator.nextProduct());
+// console.log(shoppingCartIterator.nextProduct());
+// console.log(shoppingCartIterator.nextProduct());
+// console.log(shoppingCartIterator.nextProduct());
+// console.log(shoppingCartIterator.nextProduct());
