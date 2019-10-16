@@ -456,41 +456,84 @@
 // console.log(client[clientName]);
 // console.log(clientName);
 
-// Create a set
+// // Create a set
 
-let shoppingCart = new Set();
-shoppingCart.add('Shirt');
-shoppingCart.add('Album #1');
-shoppingCart.add('Album #2');
-shoppingCart.add('Album #3');
-shoppingCart.add('Album #3');
+// let shoppingCart = new Set();
+// shoppingCart.add('Shirt');
+// shoppingCart.add('Album #1');
+// shoppingCart.add('Album #2');
+// shoppingCart.add('Album #3');
+// shoppingCart.add('Album #3');
 
-console.log(shoppingCart);
+// console.log(shoppingCart);
 
-// Get length of the set
+// // Get length of the set
 
-console.log(shoppingCart.size);
+// console.log(shoppingCart.size);
 
-// Check if a value exist on a set
+// // Check if a value exist on a set
 
-console.log(shoppingCart.has('Album #3'));
+// console.log(shoppingCart.has('Album #3'));
 
-// Remove from the set
-// shoppingCart.delete('Album #1')
+// // Remove from the set
+// // shoppingCart.delete('Album #1')
 
-// Clear the set
-// shoppingCart.clear();
+// // Clear the set
+// // shoppingCart.clear();
 
-console.log(shoppingCart);
+// console.log(shoppingCart);
 
-shoppingCart.forEach((product, index, isPart) => {
-    console.log(`${index} : ${product}`);
-    console.log(isPart === shoppingCart);
+// shoppingCart.forEach((product, index, isPart) => {
+//     console.log(`${index} : ${product}`);
+//     console.log(isPart === shoppingCart);
+// })
+
+// console.log(shoppingCart);
+
+// // Convert the set into a array
+// const shoppingCartArray = [...shoppingCart];
+
+// console.log(shoppingCartArray);
+
+let client = new Map();
+client.set('name', 'Karen');
+client.set('membership', 'Premium');
+client.set('balance', 3000);
+
+// ForEach into a map
+
+client.forEach((clientInfo, index) => {
+    console.log(`${index} ${clientInfo}`);
 })
 
-console.log(shoppingCart);
 
-// Convert the set into a array
-const shoppingCartArray = [...shoppingCart];
+// access the values
 
-console.log(shoppingCartArray);
+// console.log(client.get('name'));
+// console.log(client.get('membership'));
+// console.log(client.get('balance'));
+
+// Map Methods
+
+// Map Size
+console.log(client.size);
+
+// Check if a value exists
+console.log(client.has('membership'));
+console.log(client.get('membership'));
+
+// Remove elements from the MAP
+client.delete('name');
+
+// Clear the map
+
+client.clear();
+
+// Default values into the map
+
+const patient = new Map([['name', 'Patient Name'], ['room', 'Not Defined']]);
+patient.set('name', 'Paul')
+patient.set('room', '404')
+
+console.log(patient);
+console.log(client);
