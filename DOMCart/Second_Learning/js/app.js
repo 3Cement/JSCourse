@@ -418,41 +418,79 @@
 
 // console.log(Symbol() === Symbol());
 
-let firstName = Symbol();
-let lastName = Symbol();
+// let firstName = Symbol();
+// let lastName = Symbol();
 
-// Create an empty object
+// // Create an empty object
 
-const person = {};
+// const person = {};
 
-person[firstName] = 'Juan';
-person[lastName] = 'De la torre';
+// person[firstName] = 'Juan';
+// person[lastName] = 'De la torre';
 
-// Standard properties
-person.membership = 'Premium';
-person.amount = 500;
+// // Standard properties
+// person.membership = 'Premium';
+// person.amount = 500;
 
-console.log(person.membership);
-console.log(person.amount);
-console.log(person[firstName]);
-console.log(person[lastName]);
-console.log(person);
+// console.log(person.membership);
+// console.log(person.amount);
+// console.log(person[firstName]);
+// console.log(person[lastName]);
+// console.log(person);
 
-for(let i in person) {
-    console.log(`${person[i]}`);
-}
+// for(let i in person) {
+//     console.log(`${person[i]}`);
+// }
 
-/* You can also add a description **/
+// /* You can also add a description **/
 
-let clientName = Symbol('Client Name');
+// let clientName = Symbol('Client Name');
 
-let client = {};
+// let client = {};
 
-client[clientName] = 'Peter';
+// client[clientName] = 'Peter';
 
-// Test
+// // Test
 
-console.log(client);
-console.log(client[clientName]);
-console.log(clientName);
+// console.log(client);
+// console.log(client[clientName]);
+// console.log(clientName);
 
+// Create a set
+
+let shoppingCart = new Set();
+shoppingCart.add('Shirt');
+shoppingCart.add('Album #1');
+shoppingCart.add('Album #2');
+shoppingCart.add('Album #3');
+shoppingCart.add('Album #3');
+
+console.log(shoppingCart);
+
+// Get length of the set
+
+console.log(shoppingCart.size);
+
+// Check if a value exist on a set
+
+console.log(shoppingCart.has('Album #3'));
+
+// Remove from the set
+// shoppingCart.delete('Album #1')
+
+// Clear the set
+// shoppingCart.clear();
+
+console.log(shoppingCart);
+
+shoppingCart.forEach((product, index, isPart) => {
+    console.log(`${index} : ${product}`);
+    console.log(isPart === shoppingCart);
+})
+
+console.log(shoppingCart);
+
+// Convert the set into a array
+const shoppingCartArray = [...shoppingCart];
+
+console.log(shoppingCartArray);
