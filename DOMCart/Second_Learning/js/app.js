@@ -386,26 +386,73 @@
 //     }
 // )
 
-// Destructuring functions (new method) with default parameters
+// // Destructuring functions (new method) with default parameters
 
-function reservation(complete, 
-        {
-            paymentMethod = 'cash',
-            amount = 0,
-            days = 0
-        } = {}
-    ) {
+// function reservation(complete, 
+//         {
+//             paymentMethod = 'cash',
+//             amount = 0,
+//             days = 0
+//         } = {}
+//     ) {
 
-    console.log(paymentMethod);
-    console.log(amount);
-    console.log(days);
+//     console.log(paymentMethod);
+//     console.log(amount);
+//     console.log(days);
+// }
+
+// reservation( 
+//     true, 
+//     {
+//         paymentMethod: 'creditCard',
+//         amount: 3000,
+//         days: 20
+//     }
+// )
+
+// const client = Symbol('Client Symbol');
+
+// console.log(client);
+
+// // Symbols are always different 
+
+// console.log(Symbol() === Symbol());
+
+let firstName = Symbol();
+let lastName = Symbol();
+
+// Create an empty object
+
+const person = {};
+
+person[firstName] = 'Juan';
+person[lastName] = 'De la torre';
+
+// Standard properties
+person.membership = 'Premium';
+person.amount = 500;
+
+console.log(person.membership);
+console.log(person.amount);
+console.log(person[firstName]);
+console.log(person[lastName]);
+console.log(person);
+
+for(let i in person) {
+    console.log(`${person[i]}`);
 }
 
-reservation( 
-    true, 
-    {
-        paymentMethod: 'creditCard',
-        amount: 3000,
-        days: 20
-    }
-)
+/* You can also add a description **/
+
+let clientName = Symbol('Client Name');
+
+let client = {};
+
+client[clientName] = 'Peter';
+
+// Test
+
+console.log(client);
+console.log(client[clientName]);
+console.log(clientName);
+
