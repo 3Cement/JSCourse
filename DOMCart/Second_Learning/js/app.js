@@ -590,22 +590,113 @@
 // console.log(iterator.next().done);
 
 // Create the generator
-function *newGenerator(cart) {
-    for(let i = 0; i < cart.length; i++) {
-        yield cart[i];
-    }
+// function *newGenerator(cart) {
+//     for(let i = 0; i < cart.length; i++) {
+//         yield cart[i];
+//     }
+// }
+
+// // Shopping Cart
+
+// const cart = ['Product 1', 'Product 2', 'Product 3', 'Product 4'];
+
+// // Loop in the iterator
+
+// let iterator = newGenerator(cart);
+
+// console.log(iterator.next() );
+// console.log(iterator.next() );
+// console.log(iterator.next() );
+// console.log(iterator.next() );
+// console.log(iterator.next() );
+
+// // Built Iterators
+
+// const cities = ['London', 'New York', 'Madrid', 'Paris'];
+// const orders = new Set([123, 231, 131, 102]);
+// const data = new Map();
+// data.set('learning', 'Modern JavaScript');
+// data.set('JSisGreat', true);
+
+// // Entries
+
+// for(let entry of cities.entries() ) {
+//     // console.log(entry[1]);
+// }
+
+// for(let entry of orders.entries() ) {
+//     // console.log(entry[0]);
+// }
+
+// for(let entry of data.entries() ) {
+//     console.log(entry);
+// }
+
+// Values
+
+const cities = ['London', 'New York', 'Madrid', 'Paris'];
+const orders = new Set([123, 231, 131, 102]);
+const data = new Map();
+data.set('learning', 'Modern JavaScript');
+data.set('JSisGreat', true);
+
+// // Entries
+
+// for(let entry of cities ) {
+//     // console.log(entry);
+// }
+
+// for(let entry of orders.values() ) {
+//     // console.log(entry);
+// }
+
+// for(let entry of data.values() ) {
+//     console.log(entry);
+// }
+
+// Keys
+
+// for(let entry of cities.keys() ) {
+//     // console.log(entry);
+// }
+
+// for(let entry of orders.keys() ) {
+//     // console.log(entry);
+// }
+
+// for(let entry of data.keys() ) {
+//     console.log(entry);
+// }
+
+// Default
+
+// for(let entry of cities ) {
+//     // console.log(entry);
+// }
+
+// for(let entry of orders ) {
+//     // console.log(entry);
+// }
+
+// for(let entry of data ) {
+//     console.log(entry);
+// }
+
+// Iterate a string
+// const message = 'Learning JavaScript';
+
+// // old way
+// for(let i = 0; i < message.length; i++){
+//     console.log(message[i]);
+// }
+
+// // new way
+// for(let letter of message){
+//     console.log(letter);
+// }
+
+const anchors = document.getElementsByTagName('a');
+
+for (let anchor of anchors) {
+    console.log(anchor.href);
 }
-
-// Shopping Cart
-
-const cart = ['Product 1', 'Product 2', 'Product 3', 'Product 4'];
-
-// Loop in the iterator
-
-let iterator = newGenerator(cart);
-
-console.log(iterator.next() );
-console.log(iterator.next() );
-console.log(iterator.next() );
-console.log(iterator.next() );
-console.log(iterator.next() );
