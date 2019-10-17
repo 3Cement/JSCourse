@@ -695,8 +695,95 @@ data.set('JSisGreat', true);
 //     console.log(letter);
 // }
 
-const anchors = document.getElementsByTagName('a');
+// const anchors = document.getElementsByTagName('a');
 
-for (let anchor of anchors) {
-    console.log(anchor.href);
-}
+// for (let anchor of anchors) {
+//     console.log(anchor.href);
+// }
+
+// Regular Expressions
+
+const exp1 = new RegExp('/abc/');
+const exp2 = /abc/;
+
+// const year = 1992;
+
+// console.log( /[0-9]/.test(year) )
+
+// Check if a date follows the pattern 20-10-2018
+
+// const dateRegExp = /\d\d-\d\d-\d\d\d\d/;
+// const date = '20-10-2018';
+// console.log(dateRegExp.test(date));
+
+// Check for the time 14:00
+
+// const timeRegExp = /\d\d:\d\d/
+// const time = '10:15';
+// console.log(timeRegExp.test(time));
+
+// Check for the time in 12 hours with AM /PM
+
+// const timeRegExpComplete = /\d\d:\d\d \D\D/;
+// let completeTime;
+// completetTime = '08:30 PM';
+// console.log(timeRegExpComplete.test(completetTime));
+
+// const numbersRexExp = /\d+/;
+// const digits = 1234;
+// console.log(numbersRexExp.test(digits));
+
+// Deny the expression
+
+// const denyRegExp = /[^0-9]/;
+// const numbers = 'Hello';
+// console.log(denyRegExp.test(numbers));
+
+
+// const dateRegExp = /\d{1,2}-\d{1,2}-\d{1,4}/;
+// const date = '2-10-2018';
+// console.log(dateRegExp.test(date));
+
+// Check for letters or numbers
+
+// const messageRexExp = /\w+/;
+// let message;
+// message = 'Test message';
+// message = 1234;
+// message = ' ';
+// message = 'hello@mail.com';
+
+// console.log(messageRexExp.test(message));
+
+// Check for numbers
+
+// const checkNumbers = /\d+/;
+
+// const numbers = 1234;
+// console.log(checkNumbers.test(numbers));
+
+// const checkNumbers = /([0-9])\w+/;
+
+// const numbers = 1234;
+// console.log(checkNumbers.test(numbers));
+
+// EVALUATE FOR UPPERCASE ONLY
+
+// const checkForUppercase = /([A-Z])\w+/;
+// let message;
+// message = 1234;
+// message = 'message';
+// message = 'UPPERCASE';
+
+
+// console.log(checkForUppercase.test(message));
+
+
+const checkForLowercase = /([a-z])\w+/;
+let message;
+message = 1234;
+message = 'message';
+message = 'UPPERCASE';
+
+
+console.log(checkForLowercase.test(message));
