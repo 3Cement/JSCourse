@@ -17,7 +17,7 @@ class UI {
                         <img class="card-img-top" src="${drink.strDrinkThumb}" alt="${drink.strDrink}">
                         <div class="card-body">
                             <h2 class="card-title text-center">${drink.strDrink}</h2>
-                            <a class="btn btn-success get-recipe" href="#" data-toggle="modal" data-id="${drink.idDrink}">Get Recipe</a>
+                            <a data-target="#recipe" class="btn btn-success get-recipe" href="#" data-toggle="modal" data-id="${drink.idDrink}">Get Recipe</a>
                         </div>
                     </div>
                 </div>
@@ -69,7 +69,6 @@ class UI {
 
     // Prints the ingredients and Measurements
     displayIngredients(drink) {
-        // console.log(drink);
 
         let ingredients = [];
         for(let i = 1; i < 5; i++) {
@@ -91,6 +90,21 @@ class UI {
             `;
         });
         return ingredientsTemplate;
+    }
+
+    // Display single recipe
+    displaySingleRecipe(recipe) {
+        // Get variables
+        const modalTitle = document.querySelector('.modal-title'),
+              modalDescription = document.querySelector('.modal-body .description-text'),
+              modalIngredients = document.querySelector('.modal-body .ingredient-list .list-group');
+
+        // Set the values
+        modalTitle.innerHTML = recipe.strDrink;
+        modalDescription.innerHTML = recipe.strInstructions;
+
+        // Display the ingredients
+        modalIngredients.innerHTML = this.displayIngredients(recipe);
     }
 
     // Displays a Custom Message
