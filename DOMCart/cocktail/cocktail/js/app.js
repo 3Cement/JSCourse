@@ -11,6 +11,12 @@ function eventListeners() {
     if(searchForm) {
         searchForm.addEventListener('submit', getCocktails);
     }
+
+    // The results div listeners
+    const resultsDiv = document.querySelector('#results');
+    if(resultsDiv) {
+        resultsDiv.addEventListener('click', resultsDelegation);
+    }
 }
 
 eventListeners();
@@ -39,7 +45,12 @@ function getCocktails(e) {
             case 'name':
                 serverResponse = cocktail.getDrinksByName(searchTerm);
                 break;
+            case 'ingredient':
+                serverResponse = cocktail.getDrinksByIngredient( searchTerm );
+                break;
         }
+
+        ui.clearResults();
 
         // Query by the name of the drink
         serverResponse.then(cocktails => {
@@ -47,9 +58,28 @@ function getCocktails(e) {
                 // Nothing exists
                 ui.printMessage('There\'re no results, try a different term', 'danger');
             } else {
-                ui.displayDrinksWithIngredients(cocktails.cocktails.drinks)
-                console.log(cocktails);
+                if(type === 'name') {
+                    console.log('Display with ingredients');
+                    // Display with ingredients
+                    ui.displayDrinksWithIngredients( cocktails.cocktails.drinks );
+                } else {
+                    console.log('Display without Ingredients (category, alcohol, ingredient)');
+                    // Display without Ingredients (category, alcohol, ingredient)
+                    ui.displayDrinks(cocktails.cocktails.drinks);
+                }
             }
+        })
+    }
+}
+
+// Delegation for the #results area
+function resultsDelegation(e) {
+    e.preventDefault();
+
+    if(e.target.classList.contains('get-recipe')) {
+        cocktail.getSingleRecipe(e.target.dataset.id)
+        .then(recipe => {
+            console.log(recipe);
         })
     }
 }
