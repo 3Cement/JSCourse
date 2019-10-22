@@ -5,6 +5,8 @@ const ui = new UI(),
 
 // Create the Event Listeners
 function eventListeners() {
+    // Document Ready
+    document.addEventListener('DOMContentLoaded', documentReady);
 
     // Add event listener when form is submitted
     const searchForm = document.querySelector('#search-form');
@@ -82,5 +84,15 @@ function resultsDelegation(e) {
             // Displays single recipe into a modal
             ui.displaySingleRecipe( recipe.recipe.drinks[0] );
         })
+    }
+}
+
+// Document Ready
+function documentReady() {
+
+    // Select the search category select
+    const searchCategory = document.querySelector('.search-category');
+    if(searchCategory) {
+        ui.displayCategories();
     }
 }
