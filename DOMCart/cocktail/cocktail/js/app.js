@@ -1,6 +1,7 @@
 // Instanciate the Classes
 const ui = new UI(),
-      cocktail = new CocktailAPI();
+      cocktail = new CocktailAPI(),
+      cocktailDB = new CocktailDB();
 
 
 // Create the Event Listeners
@@ -101,6 +102,19 @@ function resultsDelegation(e) {
             // Add the class
             e.target.classList.add('is-favorite');
             e.target.textContent = '-';
+
+            // Get Info
+            const cardBody = e.target.parentElement;
+
+            const drinkInfo = {
+                id: e.target.dataset.id,
+                name: cardBody.querySelector('.card-title').textContent,
+                image: cardBody.querySelector('.card-img-top').src
+            }
+
+            // console.log(drinkInfo);
+            // Add into the storage
+            cocktailDB.saveIntoDB(drinkInfo);
         }
     }
 
