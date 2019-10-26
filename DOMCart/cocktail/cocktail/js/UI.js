@@ -46,7 +46,8 @@ class UI {
                     </div>
                 </div>
             `;
-        })
+        });
+        this.isFavorite();
     }
 
     // Displays drinks with ingredients
@@ -91,7 +92,9 @@ class UI {
                     </div>
                 </div>
             `;
-        })
+        });
+        this.isFavorite();
+
     }
 
     // Prints the ingredients and Measurements
@@ -197,5 +200,23 @@ class UI {
     // Remove single favorite from dom
     removeFavorite(element) {
         element.remove();
+    }
+
+    // Add a Class when cocktail is favorite
+    isFavorite() {
+        const drinks = cocktailDB.getFromDB();
+
+        drinks.forEach(drink => {
+            // destructuring the id
+            let {id} = drink;
+
+            // Select the favorites
+            let favoriteDrink = document.querySelector(`[data-id="${id}"]`);
+            if(favoriteDrink) {
+                favoriteDrink.classList.add('is-favorite');
+                favoriteDrink.textContent = '-';
+
+            }
+        })
     }
 }
