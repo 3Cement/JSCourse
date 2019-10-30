@@ -16,8 +16,8 @@ import { Business } from './business.js'
 
 // use the class
 let client = new Client('Juan', 500);
-console.log(client);
+console.log(client.displayClientInfo() );
 
 // using the business class
 let business = new Business('Udemy', 100000000, 'Education');
-console.log(business);
+console.log(business.displayClientInfo());
