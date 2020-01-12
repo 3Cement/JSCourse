@@ -1,3 +1,4 @@
+import { API } from './api.js';
 import * as UI from './ui.js';
 
 UI.searchForm.addEventListener('submit', (e) => {
@@ -17,5 +18,23 @@ UI.searchForm.addEventListener('submit', (e) => {
         }, 3000)
     } else {
         // Query the REST API
+        const lyric = new API(artistName, songName);
+        lyric.queryAPI()
+             .then(data => {
+                 if(data.lyric.lyrics) {
+                     // a song was found
+                     let result = data.lyric.lyrics;
+                     UI.resultDiv.textContent = result;
+                 } else {
+                     // No results found
+                    UI.messageDiv.innerHTML = 'No lyrics found';
+                    UI.messageDiv.classList.add('error');
+                    setTimeout(() => {
+                        UI.messageDiv.innerHTML = '';
+                        UI.messageDiv.classList.remove('error');
+                        UI.searchForm.reset;
+                    }, 3000)
+                 }
+             })
     }
 })
