@@ -61,6 +61,24 @@ document.addEventListener('DOMContentLoaded', () => {
             hour: hour.value,
             symptoms: symptoms.value,
         }
-        console.log(newAppointment);
+        // console.log(newAppointment);
+
+        // Insert the object into the database
+        let transaction = DB.transaction(['appointments'], 'readwrite');
+        let objectStore = transaction.objectStore('appointments');
+
+        console.log(objectStore);
+        let request = objectStore.add(newAppointment);
+
+        // on success
+        request.onsuccess = () => {
+            form.reset();
+        }
+        transaction.oncomplete = () => {
+            console.log('New appointment added');
+        }
+        transaction.onerror = () => {
+            console.log('There was an error, try again!');
+        }
     }
 })
