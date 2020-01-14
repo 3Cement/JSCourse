@@ -37,8 +37,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // createindex: 1) field name 2) keypath 3) options
         objectStore.createIndex('petname', 'petname', { unique: false } );
+        objectStore.createIndex('ownername', 'ownername', { unique: false } );
+        objectStore.createIndex('phone', 'phone', { unique: false } );
+        objectStore.createIndex('date', 'date', { unique: false } );
+        objectStore.createIndex('hour', 'hour', { unique: false } );
+        objectStore.createIndex('symptoms', 'symptoms', { unique: false } );
 
         console.log('Database ready and fields created!');
 
+    }
+
+    form.addEventListener('submit', addAppointment);
+
+    function addAppointment(e) {
+        e.preventDefault();
+
+        // create a new object with the form info
+        let newAppointment = {
+            petname: petName.value,
+            ownername: ownerName.value,
+            phone: phone.value,
+            date: date.value,
+            hour: hour.value,
+            symptoms: symptoms.value,
+        }
+        console.log(newAppointment);
     }
 })
