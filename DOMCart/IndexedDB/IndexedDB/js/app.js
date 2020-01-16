@@ -119,10 +119,16 @@ document.addEventListener('DOMContentLoaded', () => {
                     ${cursor.value.hour}</span></p>                
                     <p class="font-weight-bold">Symptoms: <span class="font-weight-normal">
                     ${cursor.value.symptoms}</span></p>
-
                 `;
 
+                // Remove button
+                const removeBTN = document.createElement('button');
+                removeBTN.classList.add('btn', 'btn-danger');
+                removeBTN.innerHTML = '<span aria-hidden="true">x</span> Remove';
+                removeBTN.onclick = removeAppointment;
+
                 // add this into the HTML
+                appointmentHTML.appendChild(removeBTN);
                 appointments.appendChild(appointmentHTML);
 
                 cursor.continue();            
@@ -139,4 +145,16 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     }
+
+    function removeAppointment(e) {
+        // get the appointment id
+        let appointmentID = Number(e.target.parentElement.getAttribute('data-appointment-id') );
+        // use a transaction 
+        let transaction = DB.transaction(['appointments'], 'readwrite');
+        let objectStore = transaction.objectStore('appointments');
+
+
+
+    }
+
 })
