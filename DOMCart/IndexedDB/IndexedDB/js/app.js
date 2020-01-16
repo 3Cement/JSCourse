@@ -24,6 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // save the result
         DB = AppointmentDB.result;
+
+        // display the appointments
+        displayAppointments();
     }
     
     // This method runs once (great for creating the schema)
@@ -76,9 +79,44 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         transaction.oncomplete = () => {
             console.log('New appointment added');
+
+            displayAppointments();
         }
         transaction.onerror = () => {
             console.log('There was an error, try again!');
+        }
+    }
+
+    function displayAppointments() {
+        // clear the previous appointments
+        while(appointments.firstChild) {
+            appointments.removeChild(appointments.firstChild);
+        }
+
+        // create the object store
+        let objectStore = DB.transaction('appointments').objectStore('appointments');
+
+        objectStore.openCursor().onsuccess = function(e) {
+            // assign the current cursor
+            let cursor = e.target.result;
+
+            if(cursor) {
+                let appointmentHTML = document.createElement('li');
+                appointmentHTML.setAttribute('data-appointment-id', cursor.value.key);
+                appointmentHTML.classList.add('list-group-item');
+
+                appointmentHTML.innerHTML = `
+                
+                    <p class="font-weight-bold">Pet Name: <span class="font-weight-normal">
+                    ${cursor.value.petname}</span></p>
+
+                `;
+
+                // add this into the HTML
+                appointments.appendChild(appointmentHTML);
+
+                cursor.continue()
+;            }
         }
     }
 })
