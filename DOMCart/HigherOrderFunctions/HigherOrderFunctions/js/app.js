@@ -230,5 +230,10 @@ const cars = [
 // console.log(result);
 
 // let result = cars.filter(car =>  car.make === 'BMW');
-let result = cars.filter(car =>  car.make === 'BMW' && car.year >= 2015);
+// let result = cars.filter(car =>  car.make === 'BMW' && car.year >= 2015);
+// console.log(result);
+
+// FIND
+
+let result = cars.find(car =>  car.carmodel === 'Mustang');
 console.log(result);
