@@ -239,11 +239,17 @@ const cars = [
 // console.log(result);
 
 // REDUCE
+// Output one singe value
 
 // let result = cars.reduce((total, car) => total + car.price, 0 );
 
-const numbers = [1,2,3];
-let result = numbers.reduce((total, number) => total + number, 0);
+// const numbers = [1,2,3];
+// let result = numbers.reduce((total, number) => total + number, 0);
+
+// SOME
+// Returns TRUE of FALSE!!
+// let result = cars.some(car => car.make === 'BMW');
+let result = cars.some(car => car.make === 'Ferrari');
 
 console.log(result);
 
