@@ -187,8 +187,29 @@ const cars = [
 
 // forEach
 
-cars.forEach((car) => {
-	console.log(car);
-})
+// cars.forEach((car) => {
+// 	console.log(car);
+// })
 
-cars.forEach(car => console.log(car));
+// cars.forEach(car => console.log(car));
+
+// Map
+
+// cars.map(car => {
+// 	console.log(car)
+// });
+
+// Map creates a new array
+
+let result = cars.map(car => {
+	return car;
+});
+console.log(result);
+
+// The difference: Map Creates a new array!
+
+let result = cars.map(car => car);
+console.log(result);
+
+let result2 = cars.forEach(car => car);
+console.log(result2);
