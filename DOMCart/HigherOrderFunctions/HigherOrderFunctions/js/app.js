@@ -201,15 +201,34 @@ const cars = [
 
 // Map creates a new array
 
-let result = cars.map(car => {
-	return car;
-});
+// let result = cars.map(car => {
+// 	return car;
+// });
+// console.log(result);
+
+// // The difference: Map Creates a new array!
+
+// let result = cars.map(car => car);
+// console.log(result);
+
+// let result2 = cars.forEach(car => car);
+// console.log(result2);
+
+// Extract any element with map
+// let result = cars.map(car => {
+// 	if(car.color === 'Black'){
+// 		return car;
+// 	}
+// });
+// console.log(result);
+
+// FILTER
+
+// let result = cars.filter(car => {
+// 	return car.make === 'BMW';
+// });
+// console.log(result);
+
+// let result = cars.filter(car =>  car.make === 'BMW');
+let result = cars.filter(car =>  car.make === 'BMW' && car.year >= 2015);
 console.log(result);
-
-// The difference: Map Creates a new array!
-
-let result = cars.map(car => car);
-console.log(result);
-
-let result2 = cars.forEach(car => car);
-console.log(result2);
