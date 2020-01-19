@@ -235,5 +235,15 @@ const cars = [
 
 // FIND
 
-let result = cars.find(car =>  car.carmodel === 'Mustang');
+// let result = cars.find(car =>  car.carmodel === 'Mustang');
+// console.log(result);
+
+// REDUCE
+
+// let result = cars.reduce((total, car) => total + car.price, 0 );
+
+const numbers = [1,2,3];
+let result = numbers.reduce((total, number) => total + number, 0);
+
 console.log(result);
+
