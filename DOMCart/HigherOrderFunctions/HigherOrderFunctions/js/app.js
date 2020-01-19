@@ -169,3 +169,26 @@ const cars = [
 		transmission: 'automatic'
 	}
 ];
+
+
+// The old way!
+// for(let i = 0; i < cars.length; i++){
+	// console.log(cars[i]);
+// }
+
+// Filter black cars
+// let result = [];
+// for(let i = 0; i < cars.length; i++){
+// 	if(cars[i].color === 'Black'){
+// 		result.push(cars[i]);
+// 	}
+// }
+// console.log(result);
+
+// forEach
+
+cars.forEach((car) => {
+	console.log(car);
+})
+
+cars.forEach(car => console.log(car));
