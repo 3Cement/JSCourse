@@ -202,5 +202,17 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function showCars(cars) {
-    console.log(cars);
+
+    // get the container
+    const container = document.querySelector('#result');
+
+    // build the HTML and print the data in the container
+    cars.forEach(car => {
+        const carHTML = document.createElement('p');
+        carHTML.innerHTML = ` 
+            ${car.make} ${car.carmodel} - ${car.year} - ${car.doors} Doors - Transmission: 
+            ${car.transmission} - Price: ${car.price} - Color: ${car.color}
+        `;
+        container.appendChild(carHTML);
+    })
 }
