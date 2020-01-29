@@ -230,6 +230,27 @@ max.addEventListener('input', e => {
     filterCars();
 })
 
+const doors = document.querySelector('#doors');
+doors.addEventListener('input', e => {
+    searchFields.doors = Number(e.target.value);
+    // execute the filter cars based on the items that we have in the search fields object
+    filterCars();
+})
+
+const transmission = document.querySelector('#transmission');
+transmission.addEventListener('input', e => {
+    searchFields.transmission = e.target.value;
+    // execute the filter cars based on the items that we have in the search fields object
+    filterCars();
+})
+
+const color = document.querySelector('#color');
+color.addEventListener('input', e => {
+    searchFields.color = e.target.value;
+    // execute the filter cars based on the items that we have in the search fields object
+    filterCars();
+})
+
 function clearHTML() {
     // select the container
     const container = document.querySelector('#result');
@@ -258,13 +279,24 @@ function showCars(cars) {
     })
 }
 
+function noResults() {
+    clearHTML();
+
+    // build the alert
+    const noResults = document.createElement('div');
+    noResults.classList.add('alert', 'error');
+    noResults.appendChild(document.createTextNode('No Results Found'));
+    document.querySelector('#result').appendChild(noResults);
+}
+
 function filterCars() {
-    const result = getCars().filter(filterMake).filter(filterYear).filter(filterMinPrice).filter(filterMaxPrice);
+    const result = getCars().filter(filterMake).filter(filterYear).filter(filterMinPrice)
+    .filter(filterMaxPrice).filter(filterDoors).filter(filterTransmission).filter(filterColor);
 
     if(result.length) {
         showCars(result)
     } else {
-        alert('No Results Found!')
+        noResults();
     }
 }
 
@@ -292,6 +324,27 @@ function filterMinPrice(car) {
 function filterMaxPrice(car) {
     if(searchFields.max) {
         return car.price <= searchFields.max
+    } else {
+        return car;
+    }
+}
+function filterDoors(car) {
+    if(searchFields.doors) {
+        return car.doors === searchFields.doors
+    } else {
+        return car;
+    }
+}
+function filterTransmission(car) {
+    if(searchFields.transmission) {
+        return car.transmission === searchFields.transmission
+    } else {
+        return car;
+    }
+}
+function filterColor(car) {
+    if(searchFields.color) {
+        return car.color === searchFields.color
     } else {
         return car;
     }
