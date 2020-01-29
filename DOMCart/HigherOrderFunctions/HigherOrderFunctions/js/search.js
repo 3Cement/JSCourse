@@ -209,10 +209,23 @@ make.addEventListener('input', e => {
     filterCars();
 });
 
-// Events Listeners for the Form Elements
 const year = document.querySelector('#year');
 year.addEventListener('input', e => {
     searchFields.year = Number(e.target.value);
+    // execute the filter cars based on the items that we have in the search fields object
+    filterCars();
+})
+
+const min = document.querySelector('#min');
+min.addEventListener('input', e => {
+    searchFields.min = Number(e.target.value);
+    // execute the filter cars based on the items that we have in the search fields object
+    filterCars();
+})
+
+const max = document.querySelector('#max');
+max.addEventListener('input', e => {
+    searchFields.max = Number(e.target.value);
     // execute the filter cars based on the items that we have in the search fields object
     filterCars();
 })
@@ -246,7 +259,7 @@ function showCars(cars) {
 }
 
 function filterCars() {
-    const result = getCars().filter(filterMake).filter(filterYear);
+    const result = getCars().filter(filterMake).filter(filterYear).filter(filterMinPrice).filter(filterMaxPrice);
 
     if(result.length) {
         showCars(result)
@@ -266,6 +279,20 @@ function filterYear(car) {
     if(searchFields.year) {
         return car.year === searchFields.year
     } else {
-        return car
+        return car;
+    }
+}
+function filterMinPrice(car) {
+    if(searchFields.min) {
+        return car.price >= searchFields.min
+    } else {
+        return car;
+    }
+}
+function filterMaxPrice(car) {
+    if(searchFields.max) {
+        return car.price <= searchFields.max
+    } else {
+        return car;
     }
 }
