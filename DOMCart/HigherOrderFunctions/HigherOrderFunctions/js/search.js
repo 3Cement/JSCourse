@@ -201,6 +201,22 @@ document.addEventListener('DOMContentLoaded', () => {
     showCars(cars);
 });
 
+// Events Listeners for the Form Elements
+const make = document.querySelector('#make');
+make.addEventListener('input', e => {
+    searchFields.make = e.target.value;
+    // execute the filter cars based on the items that we have in the search fields object
+    filterCars();
+});
+
+// Events Listeners for the Form Elements
+const year = document.querySelector('#year');
+year.addEventListener('input', e => {
+    searchFields.year = Number(e.target.value);
+    // execute the filter cars based on the items that we have in the search fields object
+    filterCars();
+})
+
 function showCars(cars) {
 
     // get the container
@@ -215,4 +231,25 @@ function showCars(cars) {
         `;
         container.appendChild(carHTML);
     })
+}
+
+function filterCars() {
+    const result = getCars().filter(filterMake).filter(filterYear);
+
+    console.log(result);
+}
+
+function filterMake(car) {
+    if(searchFields.make) {
+        return car.make === searchFields.make
+    } else {
+        return car;
+    }
+}
+function filterYear(car) {
+    if(searchFields.year) {
+        return car.year === searchFields.year
+    } else {
+        return car
+    }
 }
